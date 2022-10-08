@@ -47,6 +47,11 @@ services:
       # Use single node discovery in order to disable production mode and avoid bootstrap checks.
       # see: https://www.elastic.co/guide/en/elasticsearch/reference/current/bootstrap-checks.html
       discovery.type: single-node
+      #node.name: es01
+      #cluster.name: my-es
+      #discovery.seed_hosts: es02,es03
+      #cluster.initial_master_nodes: es01,es02,es03
+      #bootstrap.memory_lock: true
     ulimits:
         memlock:
           soft: -1
@@ -76,11 +81,11 @@ services:
       ELASTIC_PASSWORD: ${ELASTIC_PASSWORD:-}
       # Use single node discovery in order to disable production mode and avoid bootstrap checks.
       # see: https://www.elastic.co/guide/en/elasticsearch/reference/current/bootstrap-checks.html
-      - node.name=es02
-      - cluster.name=my-es
-      - discovery.seed_hosts=es01,es03
-      - cluster.initial_master_nodes=es01,es02,es03
-      - bootstrap.memory_lock=true
+      node.name: es02
+      cluster.name: my-es
+      discovery.seed_hosts: es01,es03
+      cluster.initial_master_nodes: es01,es02,es03
+      bootstrap.memory_lock: true
     ulimits:
         memlock:
           soft: -1
@@ -110,11 +115,11 @@ services:
       ELASTIC_PASSWORD: ${ELASTIC_PASSWORD:-}
       # Use single node discovery in order to disable production mode and avoid bootstrap checks.
       # see: https://www.elastic.co/guide/en/elasticsearch/reference/current/bootstrap-checks.html
-      - node.name=es03
-      - cluster.name=my-es
-      - discovery.seed_hosts=es02,es03
-      - cluster.initial_master_nodes=es01,es02,es03
-      - bootstrap.memory_lock=true
+      node.name: es03
+      cluster.name: my-es
+      discovery.seed_hosts: es02,es03
+      cluster.initial_master_nodes: es01,es02,es03
+      bootstrap.memory_lock: true
     ulimits:
         memlock:
           soft: -1
