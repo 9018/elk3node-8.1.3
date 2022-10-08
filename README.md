@@ -9,3 +9,6 @@
 
 
 docker cp  1d1b79e6d0d9:/usr/share/elasticsearch/elastic-certificates.p12 elastic-certificates.p12
+
+
+chmod -R 777 elastic-certificates.p12
