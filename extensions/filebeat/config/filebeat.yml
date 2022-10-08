@@ -1,0 +1,31 @@
+filebeat.inputs:
+- type: log
+  enabled: true
+  paths:
+    - /mnt/huawei/*
+  tags: ["huawei"]
+  include_lines: ['Failed','failed','error','ERROR','\bDOWN\b','\bdown\b','\bUP\b','\bup\b','Command','command']
+  drop_fields:
+    fields: ["beat","input_type","source","offset","prospector"]
+- type: log
+  enabled: true
+  paths:
+    - /mnt/h3c/*
+  tags: ["h3c"]
+  include_lines: ['Failed','failed','error','ERROR','\bDOWN\b','\bdown\b','\bUP\b','\bup\b','Command','command']
+  drop_fields:
+    fields: ["beat","input_type","source","offset","prospector"]
+- type: log
+  enabled: true
+  paths:
+    - /mnt/attack-syslog/localhost_123.15.52.186/*
+  tags: ["attack-syslog-sangfor-af"]
+  fields:
+   logtype1: "sangfor-af"
+#setup.template.settings:
+#  index.number_of_shards: 3
+output.logstash:
+  hosts: ["172.19.0.2:5044"]
+processors:
+  - add_host_metadata: ~
+  - add_cloud_metadata: ~
