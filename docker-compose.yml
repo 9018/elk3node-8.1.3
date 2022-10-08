@@ -151,7 +151,7 @@ services:
       LOGSTASH_INTERNAL_PASSWORD: ${LOGSTASH_INTERNAL_PASSWORD:-}
     networks:
       elk:
-         ipv4_address: 172.18.0.2
+         ipv4_address: 172.18.0.8
     depends_on:
       - es03
 
@@ -169,7 +169,7 @@ services:
       KIBANA_SYSTEM_PASSWORD: ${KIBANA_SYSTEM_PASSWORD:-}
     networks:
       elk:
-         ipv4_address: 172.18.0.1
+         ipv4_address: 172.18.0.9
     depends_on:
       - es03
 
@@ -179,7 +179,7 @@ networks:
     ipam:
       config:
       - subnet: "172.18.0.0/24"
-
+      gateway: 172.18.0.1
 volumes:
   setup:
   es01:
