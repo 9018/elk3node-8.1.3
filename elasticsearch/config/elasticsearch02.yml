@@ -20,7 +20,8 @@ xpack.security.transport.ssl.verification_mode: certificate
 xpack.security.transport.ssl.keystore.path: elastic-certificates.p12
 xpack.security.transport.ssl.truststore.path: elastic-certificates.p12
 http.cors.enabled: true
-http.cors.allow-origin: “*”
+http.cors.allow-origin: "*"
+
 
 
 #xpack.security.enabled: false
