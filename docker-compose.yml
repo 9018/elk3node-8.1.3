@@ -24,7 +24,7 @@ services:
     networks:
       - elk
 
-  elasticsearch:
+  es01:
     build:
       context: elasticsearch/
       args:
