@@ -24,14 +24,14 @@ services:
     networks:
       - elk
 
-  es01:
+  elasticsearch:
     build:
       context: elasticsearch/
       args:
         ELASTIC_VERSION: ${ELASTIC_VERSION}
     volumes:
       - /etc/localtime:/etc/localtime
-      - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch01.yml:ro,z
+      - ./elasticsearch/config/elasticsearch01.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro,z
       - ./elasticsearch/config/x-pack-core-8.1.3.jar:/usr/share/elasticsearch/modules/x-pack-core/x-pack-core-8.1.3.jar:ro,z
       - es01:/usr/share/elasticsearch/data:z
       - ./elasticsearch/config/jvm.options:/usr/share/elasticsearch/config/jvm.options:ro,z
@@ -67,7 +67,7 @@ services:
         ELASTIC_VERSION: ${ELASTIC_VERSION}
     volumes:
       - /etc/localtime:/etc/localtime
-      - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch02.yml:ro,z
+      - ./elasticsearch/config/elasticsearch02.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro,z
       - ./elasticsearch/config/x-pack-core-8.1.3.jar:/usr/share/elasticsearch/modules/x-pack-core/x-pack-core-8.1.3.jar:ro,z
       - es02:/usr/share/elasticsearch/data:z
       - ./elasticsearch/config/jvm.options:/usr/share/elasticsearch/config/jvm.options:ro,z
@@ -102,7 +102,7 @@ services:
         ELASTIC_VERSION: ${ELASTIC_VERSION}
     volumes:
       - /etc/localtime:/etc/localtime
-      - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch03.yml:ro,z
+      - ./elasticsearch/config/elasticsearch03.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro,z
       - ./elasticsearch/config/x-pack-core-8.1.3.jar:/usr/share/elasticsearch/modules/x-pack-core/x-pack-core-8.1.3.jar:ro,z
       - es03:/usr/share/elasticsearch/data:z
       - ./elasticsearch/config/jvm.options:/usr/share/elasticsearch/config/jvm.options:ro,z
